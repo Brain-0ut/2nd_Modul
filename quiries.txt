@@ -1,0 +1,103 @@
+---------------- #1------------------------
+create table stud(id serial, name varchar(100) not null, pwd varchar(20) not null, email varchar(50) not null, gender char(1));
+insert into stud (name, pwd, email, gender) values
+('Vasya', '21341234qwfsdf', 'mmm@mmail.com', 'm'),
+('Alex', '21341234', 'mmm@gmail.com', 'm'),
+('Alexey', 'qq21341234Q', 'alexey@gmail.com', 'm'),
+('Helen', 'MarryMeeee', 'hell@gmail.com', 'f'),
+('Jenny', 'SmakeMyb', 'eachup@gmail.com', 'f'),
+('Lora', 'burn23', 'tpicks@gmail.com', 'f');
+---------------- #2------------------------
+SELECT concat('This is ', name, 
+CASE WHEN gender='m' THEN ', he has email ' 
+	ELSE ', she has email ' 
+END,
+email) as Info 
+FROM stud;
+---------------- #3------------------------
+SELECT concat('We have ', count(gender), case when gender='m' then 'Boys' else 'girls' end) as "Gender information" 
+FROM stud 
+GROUP by gender;
+---------------- #4------------------------
+create table words (id serial, word varchar(255), dict_id integer);
+
+create table dict (id serial, name varchar(255), info text);
+INSERT INTO dict
+	(name)
+VALUES
+	('animals'),
+	('school'),
+	('nature'),
+	('human'),
+	('SF');
+
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('turtle', 1),
+	('pig', 1),
+	('dog', 1),
+	('cat', 1),
+	('lizard', 1),
+	('cow', 1),
+	('rabbit', 1),
+	('frog', 1),
+	('headgehog', 1),
+	('goat', 1);
+
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('desk', 2),
+	('book', 2),
+	('chalk', 2),
+	('pen', 2),
+	('pencil', 2),
+	('copybook', 2),
+	('lesson', 2),
+	('teacher', 2),
+	('pupils', 2),
+	('school', 2);
+
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('ray', 3),
+	('thunder', 3),
+	('sun', 3),
+	('field', 3),
+	('hill', 3),
+	('mountain', 3),
+	('river', 3),
+	('forest', 3),
+	('grass', 3),
+	('rain', 3);
+
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('hair', 4),
+	('nail', 4),
+	('finger', 4),
+	('eye', 4),
+	('tooth', 4),
+	('knee', 4),
+	('elbow', 4),
+	('leg', 4),
+	('arm', 4),
+	('head', 4);
+
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('engine', 5),
+	('steel', 5),
+	('power', 5),
+	('nuclear', 5),
+	('shotgun', 5),
+	('laser', 5),
+	('flight', 5),
+	('energy', 5),
+	('Moon', 5),
+	('splace', 5);
+---------------- #5------------------------
