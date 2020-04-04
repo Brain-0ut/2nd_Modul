@@ -15,13 +15,13 @@ END,
 email) as Info 
 FROM stud;
 ---------------- #3------------------------
-SELECT concat('We have ', count(gender), case when gender='m' then 'Boys' else 'girls' end) as "Gender information" 
+SELECT concat('We have ', count(gender), case when gender='m' then ' Boys' else ' Girls' end) as "Gender information" 
 FROM stud 
 GROUP by gender;
 ---------------- #4------------------------
 create table words (id serial, word varchar(255), dict_id integer);
 
-create table dict (id serial, name varchar(255), info text);
+create table dict (dict_id serial, name varchar(255), info text);
 INSERT INTO dict
 	(name)
 VALUES
@@ -101,3 +101,4 @@ VALUES
 	('Moon', 5),
 	('splace', 5);
 ---------------- #5------------------------
+select name, count(dict_id) from dict join words using (dict_id) group by name;
